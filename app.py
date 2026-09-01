@@ -6,8 +6,18 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 
-plt.rcParams['font.sans-serif'] = ['Noto Sans SC']
-plt.rcParams['axes.unicode_minus'] = False
+from matplotlib import font_manager
+
+font_path = "NotoSansSC-VariableFont_wght.ttf"
+
+font_manager.fontManager.addfont(font_path)
+
+font_name = font_manager.FontProperties(
+    fname=font_path
+).get_name()
+
+plt.rcParams["font.family"] = font_name
+plt.rcParams["axes.unicode_minus"] = False
 
 st.set_page_config(page_title="用户LTV预测仪表板", layout="wide")
 st.title("📊用户生命周期价值（LTV）预测")
